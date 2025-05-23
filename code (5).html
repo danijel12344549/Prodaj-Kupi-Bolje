@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodaj Kupi Bolje - Tvoj auto oglasnik</title>
+    <style>
+        /* Osnovni stilovi - vrlo pojednostavljeno */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            background-color: #444;
+            padding: 0.5em;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 1em;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            width: 80%;
+            margin: 2em auto;
+            overflow: hidden;
+            padding: 1em;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .search-bar {
+            margin-bottom: 2em;
+            padding: 1em;
+            background-color: #eef;
+            border-radius: 5px;
+        }
+        .search-bar input[type="text"] {
+            width: 70%;
+            padding: 0.5em;
+            margin-right: 1%;
+        }
+        .search-bar button {
+            padding: 0.5em 1em;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .search-bar button:hover {
+            background-color: #4cae4c;
+        }
+        .car-listing {
+            border: 1px solid #ddd;
+            margin-bottom: 1em;
+            padding: 1em;
+            overflow: hidden; /* Clearfix */
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .car-listing img {
+            float: left;
+            margin-right: 1em;
+            width: 150px; /* Prilagodi veličinu slike */
+            height: auto;
+            border: 1px solid #ccc;
+        }
+        .car-listing h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+        .car-listing .price {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #d9534f;
+        }
+        .car-listing .details-button {
+            display: inline-block;
+            margin-top: 0.5em;
+            padding: 0.5em 1em;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+        .car-listing .details-button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            text-align: center;
+            padding: 1em;
+            background-color: #333;
+            color: #fff;
+            margin-top: 2em;
+        }
+
+        /* Stilovi za stranicu pojedinačnog oglasa */
+        .single-car-images img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+        }
+        .single-car-details ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .single-car-details ul li {
+            padding: 5px 0;
+            border-bottom: 1px dotted #eee;
+        }
+        .single-car-details ul li strong {
+            display: inline-block;
+            width: 150px; /* Za poravnanje */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Prodaj Kupi Bolje</h1>
+        <p>Tvoje odredište za pametnu trgovinu automobilima.</p>
+    </header>
+    <nav>
+        <a href="#home">Početna</a>
+        <a href="#svi-oglasi">Kupi Auto</a>
+        <a href="#objavi-oglas">Prodaj Auto</a>
+        <a href="#o-nama">O Nama</a>
+        <a href="#kontakt">Kontakt</a>
+    </nav>
+
+    <div class="container" id="home">
+        <section class="search-bar">
+            <h2>Brza Pretraga</h2>
+            <input type="text" id="searchInput" placeholder="Npr. VW Golf, Audi A4, do 10000 EUR...">
+            <button onclick="alert('Pretraga još nije implementirana!')">Pretraži</button>
+        </section>
+
+        <section id="svi-oglasi">
+            <h2>Istaknuti Oglasi</h2>
+
+            <article class="car-listing">
+                <img src="https://via.placeholder.com/150/CCCCCC/808080?Text=Auto1" alt="VW Golf 7">
+                <h3>VW Golf 7 1.6 TDI</h3>
+                <p class="price">12.500 €</p>
+                <p>2016. godište, 150.000 km, Dizel, Odlično stanje, Servisna knjiga.</p>
+                <a href="#oglas-primjer-1" class="details-button" onclick="showSingleListing('oglas-primjer-1')">Detalji</a>
+            </article>
+
+            <article class="car-listing">
+                <img src="https://via.placeholder.com/150/DDDDDD/707070?Text=Auto2" alt="BMW Serija 3">
+                <h3>BMW Serija 3 320d</h3>
+                <p class="price">18.000 €</p>
+                <p>2017. godište, 120.000 km, Dizel, Automatik, M paket.</p>
+                <a href="#oglas-primjer-2" class="details-button" onclick="showSingleListing('oglas-primjer-2')">Detalji</a>
+            </article>
+            
+            <!-- Dodaj još oglasa ovdje -->
+        </section>
+    </div>
+
+    <!-- Primjer stranice pojedinačnog oglasa - skriven inicijalno -->
+    <div class="container" id="oglas-primjer-1" style="display:none;">
+        <h2>Detalji Oglasa: VW Golf 7 1.6 TDI</h2>
+        <div class="single-car-images">
+            <img src="https://via.placeholder.com/600x400/CCCCCC/808080?Text=VW+Golf+Slika1" alt="VW Golf 7 - Slika 1">
+            <img src="https://via.placeholder.com/600x400/CFCFCF/707070?Text=VW+Golf+Slika2" alt="VW Golf 7 - Slika 2">
+        </div>
+        <div class="single-car-details">
+            <h3>Osnovne Informacije</h3>
+            <ul>
+                <li><strong>Marka:</strong> Volkswagen</li>
+                <li><strong>Model:</strong> Golf 7</li>
+                <li><strong>Verzija:</strong> 1.6 TDI</li>
+                <li><strong>Cijena:</strong> 12.500 €</li>
+                <li><strong>Godište:</strong> 2016.</li>
+                <li><strong>Kilometraža:</strong> 150.000 km</li>
+                <li><strong>Vrsta goriva:</strong> Dizel</li>
+                <li><strong>Mjenjač:</strong> Ručni</li>
+                <li><strong>Lokacija:</strong> Zagreb</li>
+            </ul>
+            <h3>Opis Prodavatelja</h3>
+            <p>
+                Automobil je u izvrsnom stanju, redovito servisiran u ovlaštenom servisu. 
+                Posjeduje servisnu knjižicu. Drugi vlasnik. Bez ulaganja.
+                Bogata oprema: navigacija, parking senzori, tempomat, automatska klima...
+            </p>
+            <h3>Kontakt Prodavatelja</h3>
+            <p><strong>Ime:</strong> Ivan Horvat</p>
+            <p><strong>Telefon:</strong> <a href="tel:+3859X123456">+385 9X 123 456</a> (klikni za poziv)</p>
+            <button onclick="alert('Slanje poruke još nije implementirano!')">Pošalji poruku prodavatelju</button>
+        </div>
+        <br>
+        <a href="#svi-oglasi" onclick="showAllListings()">Natrag na sve oglase</a>
+    </div>
+    
+    <div class="container" id="oglas-primjer-2" style="display:none;">
+        <h2>Detalji Oglasa: BMW Serija 3 320d</h2>
+        <p>Ovdje bi išli detalji za BMW...</p>
+        <br>
+        <a href="#svi-oglasi" onclick="showAllListings()">Natrag na sve oglase</a>
+    </div>
+
+    <!-- Ovdje bi išle druge sekcije poput "Objavi Oglas", "O Nama", "Kontakt" -->
+    <div class="container" id="objavi-oglas" style="padding: 2em; text-align:center;">
+        <h2>Želiš prodati svoj auto?</h2>
+        <p>Proces objave oglasa bit će jednostavan i brz!</p>
+        <button onclick="alert('Forma za objavu oglasa još nije implementirana!')" style="padding: 1em 2em; font-size: 1.1em; background-color: #f0ad4e; color:white; border:none; cursor:pointer;">Objavi Svoj Oglas Sada!</button>
+    </div>
+
+
+    <footer>
+        <p>&copy; 2024 Prodaj Kupi Bolje. Sva prava pridržana.</p>
+    </footer>
+
+    <script>
+        // Vrlo jednostavan JavaScript za prikazivanje/skrivanje detalja oglasa
+        // U pravoj aplikaciji ovo bi bilo puno kompleksnije (npr. učitavanje s servera)
+        
+        const homeSection = document.getElementById('home');
+        const singleListingSections = [
+            document.getElementById('oglas-primjer-1'),
+            document.getElementById('oglas-primjer-2')
+        ];
+        const objaviOglasSection = document.getElementById('objavi-oglas');
+
+
+        function hideAllSingleListings() {
+            singleListingSections.forEach(section => {
+                if (section) section.style.display = 'none';
+            });
+        }
+
+        function showSingleListing(oglasId) {
+            hideAllSingleListings();
+            if (homeSection) homeSection.style.display = 'none';
+            if (objaviOglasSection) objaviOglasSection.style.display = 'none';
+
+            const targetOglas = document.getElementById(oglasId);
+            if (targetOglas) {
+                targetOglas.style.display = 'block';
+                window.scrollTo(0, 0); // Skoči na vrh stranice
+            }
+        }
+
+        function showAllListings() {
+            hideAllSingleListings();
+            if (homeSection) homeSection.style.display = 'block';
+            if (objaviOglasSection) objaviOglasSection.style.display = 'block'; // Ili kako već želiš
+            window.scrollTo(0, 0); 
+        }
+
+        // Inicijalno prikaži samo početnu stranicu
+        document.addEventListener('DOMContentLoaded', () => {
+            showAllListings();
+        });
+    </script>
+
+</body>
+</html>
